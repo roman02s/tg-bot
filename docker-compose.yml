@@ -1,0 +1,18 @@
+version: '3'
+
+# docker-compose up
+# docker rm $(docker ps -a -q) && docker volume prune -f
+
+services:
+  mongodb:
+    image: 'mongo:5'
+    environment:
+      - MONGO_INITDB_DATABASE=coursera
+    ports:
+      - '27017-27019:27017-27019'
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8090:8080
